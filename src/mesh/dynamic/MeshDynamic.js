@@ -317,7 +317,7 @@ class MeshDynamic extends Mesh {
 }
 
 MeshDynamic.SUBDIVISION_FACTOR = 75; // subdivision factor
-MeshDynamic.DECIMATION_FACTOR = 0; // decimation factor
+MeshDynamic.DECIMATION_FACTOR = 75; // decimation factor
 MeshDynamic.LINEAR = false; // linear subdivision
 
 export default MeshDynamic;
