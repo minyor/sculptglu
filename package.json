@@ -26,7 +26,8 @@
   },
   "scripts": {
     "dev": "node_modules/.bin/webpack -w",
-    "server": "http-server app -p 8080",
+    "server": "http-server app -p 80",
+    "server2": "http-server app -p 8080",
     "release": "node_modules/.bin/webpack --env release",
     "webad": "node_modules/.bin/webpack --env webad",
     "website": "node_modules/.bin/webpack --env website",

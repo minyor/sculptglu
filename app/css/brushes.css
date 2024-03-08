@@ -1,0 +1,76 @@
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#viewport {
+    overflow: hidden;
+}
+
+.brush-container-btn,
+.brush-container {
+    z-index: 2;
+    border-radius: 20px;
+    border-color: rgba(0, 0, 0, 0.3);
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.brush-container-btn {
+    font-size: 14px;
+    line-height: 100px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 10px;
+    right: 3px;
+    height: 120px;
+    padding: 3px;
+}
+
+.brush-container {
+    position: absolute;
+    width: calc(10px + (80px + 10px) * 4);
+    height: calc(10px + (100px + 10px) * 2);
+    top: 10px;
+    right: 30px;
+    padding-top: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+.brush-container.hidden {
+    right: -100vw;
+}
+
+.brush-item {
+    float: left;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 80px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.brush-item-title {
+    background-color: rgba(0, 0, 0);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.brush-item-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.brush-item-icon canvas {
+    width: 80px;
+    height: 80px;
+}

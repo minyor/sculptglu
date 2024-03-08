@@ -6,6 +6,7 @@ class SculptManager {
 
   constructor(main) {
     this._main = main;
+    window.sculptManager = this;
 
     this._toolIndex = Enums.Tools.BRUSH; // sculpting mode
     this._tools = []; // the sculpting tools

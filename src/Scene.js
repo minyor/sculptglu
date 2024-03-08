@@ -659,7 +659,11 @@ class Scene {
     for (var i = 0, j = 0, n = u8lum.length; i < n; ++i, j += 4)
       u8lum[i] = Math.round((u8rgba[j] + u8rgba[j + 1] + u8rgba[j + 2]) / 3);
 
-    name = Picking.addAlpha(u8lum, img.width, img.height, name)._name;
+    const alpha = Picking.addAlpha(u8lum, img.width, img.height, name);
+    name = alpha._name;
+    alpha._img = img;
+    alpha._can = can;
+    alpha._ctx = ctx;
 
     var entry = {};
     entry[name] = name;

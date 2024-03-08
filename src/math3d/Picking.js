@@ -34,6 +34,7 @@ class Picking {
   }
 
   constructor(main, xSym) {
+    window.Picking = Picking;
     this._mesh = null; // mesh
     this._main = main; // the camera
     this._pickedFace = -1; // face picked
