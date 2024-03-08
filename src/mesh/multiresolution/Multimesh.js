@@ -172,7 +172,7 @@ class Multimesh extends Mesh {
   }
 
   getLowIndexRender() {
-    var limit = 500000;
+    var limit = 5000000;
     var sel = this._sel;
     while (sel >= 0) {
       var mesh = this._meshes[sel];

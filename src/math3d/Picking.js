@@ -3,6 +3,7 @@ import Geometry from 'math3d/Geometry';
 import Tablet from 'misc/Tablet';
 import Utils from 'misc/Utils';
 import TR from 'gui/GuiTR';
+import texture_files from '../../app/resources/alpha/textures_files.glsl';
 
 var _TMP_NEAR = [0.0, 0.0, 0.0];
 var _TMP_NEAR_1 = [0.0, 0.0, 0.0];
@@ -438,6 +439,8 @@ class Picking {
 Picking.INIT_ALPHAS_NAMES = [TR('alphaSquare'), TR('alphaSkin')];
 Picking.INIT_ALPHAS_PATHS = ['square.jpg', 'skin.jpg'];
 
+Picking.ALPHAS_PARAMS = {};
+
 var readAlphas = function () {
   // check nodejs
   if (!window.module || !window.module.exports) return;
@@ -456,7 +459,30 @@ var readAlphas = function () {
   });
 };
 
+var registerStandardTextures = function () {
+  const files = JSON.parse(texture_files);
+  for (var i = 0; i < files.length; ++i) {
+    let fname = files[i];
+    let name = fname.substring(0, fname.lastIndexOf('.'));
+    const paramsBlockBeginning = fname.lastIndexOf('|');
+    if (paramsBlockBeginning > -1) {
+      const params = fname.substring(paramsBlockBeginning + 1);
+      fname = fname.substring(0, paramsBlockBeginning);
+      name = fname.substring(0, fname.lastIndexOf('.'))
+      const brushParams = Picking.ALPHAS_PARAMS[name] || {};
+      params.split(';').forEach((param) => {
+        const plist = param.split('=');
+        brushParams[plist[0]] = plist[1];
+      });
+      Picking.ALPHAS_PARAMS[name] = brushParams;
+    }
+    Picking.INIT_ALPHAS_NAMES.push(name);
+    Picking.INIT_ALPHAS_PATHS.push('textures/' + files[i]);
+  }
+};
+
 readAlphas();
+registerStandardTextures();
 
 var none = TR('alphaNone');
 Picking.ALPHAS_NAMES = {};

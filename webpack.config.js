@@ -1,5 +1,6 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
+const FileLister = require('./src/plugins/FileLister.js');
 
 module.exports = function (env) {
   env = env || {};
@@ -21,11 +22,16 @@ module.exports = function (env) {
     },
     module: {
       rules: [{
-        test: /\.glsl$/,
+        test: /\.(glsl|txt)$/,
         loader: 'raw-loader'
       }]
     },
-    plugins: []
+    plugins: [
+      new FileLister({
+        path: path.resolve(__dirname, 'app/resources/alpha/textures/'),
+        outputFile: path.resolve(__dirname, 'app/resources/alpha/textures_files.glsl')
+      })
+    ]
   };
 
   config.mode = (env.release || env.website) ? 'production' : 'development';

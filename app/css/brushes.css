@@ -8,9 +8,10 @@
 }
 
 .brush-container-btn,
-.brush-container {
+.brush-container,
+.brush-container-search {
     z-index: 2;
-    border-radius: 20px;
+    border-radius: 10px;
     border-color: rgba(0, 0, 0, 0.3);
     border-width: 1px;
     border-style: solid;
@@ -30,13 +31,11 @@
 
 .brush-container {
     position: absolute;
-    width: calc(10px + (80px + 10px) * 4);
-    height: calc(10px + (100px + 10px) * 2);
+    width: calc(5px + (80px + 5px) * 4);
+    height: calc(10px + (100px + 5px) * 2 + 20px);
     top: 10px;
     right: 30px;
-    padding-top: 10px;
-    overflow: scroll;
-    overflow-x: hidden;
+    padding-top: 5px;
     transition: 0.3s;
 }
 
@@ -44,21 +43,53 @@
     right: -100vw;
 }
 
+.brush-container-context {
+    width: calc(5px + (80px + 5px) * 4);
+    height: calc((100px + 5px) * 2);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.brush-container-search {
+    width: calc((80px + 5px) * 4 - 5px);
+    height: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.brush-container-search:focus {
+    border-width: 0;
+    border-color: black;
+    border: 1px solid #ccc;
+}
+
+.brush-container-search-icon {
+    width: 20px;
+    transform: translate(10px, -20px);
+    font-size: 14px;
+}
+
 .brush-item {
     float: left;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.2);
-    margin-left: 10px;
-    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-bottom: 5px;
     width: 80px;
     height: 100px;
     overflow: hidden;
 }
 
 .brush-item-title {
+    padding-left: 5px;
+    padding-right: 5px;
     background-color: rgba(0, 0, 0);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     width: 80px;
     height: 20px;
     text-align: center;
