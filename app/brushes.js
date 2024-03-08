@@ -26,6 +26,7 @@ function updateBrushParams(brush, idAlpha) {
           case 'l':
             _lockPosition = value === '1' ? true : false;
             _clay = value === '1' ? false : true;
+            break;
           case 'c':
             _clay = value === '1' ? true : false;
             break;
