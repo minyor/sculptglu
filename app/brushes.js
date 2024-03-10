@@ -36,6 +36,13 @@ function updateBrushParams(brush, idAlpha) {
     brush._negative = _negative;
     brush._clay = _clay;
     brush._lockPosition = _lockPosition;
+
+    window.sculptManager._main._gui._ctrlSculpting._ctrlSculpt.setValue(0);
+    window.sculptManager._main._gui._ctrlSculpting.GuiSculptingTools.tools[0]._ctrls[1].setValue(brush._intensity * 100);
+    window.sculptManager._main._gui._ctrlSculpting.GuiSculptingTools.tools[0]._ctrls[2].setValue(brush._negative);
+    window.sculptManager._main._gui._ctrlSculpting.GuiSculptingTools.tools[0]._ctrls[3].setValue(brush._clay);
+    window.sculptManager._main._gui._ctrlSculpting.GuiSculptingTools.tools[0]._ctrls[7].setValue(brush._lockPosition);
+    window.sculptManager._main._gui._ctrlSculpting.GuiSculptingTools.tools[0]._ctrls[8].setValue(idAlpha);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -81,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const brushItem = addElement(brushContainerContext, 'div', 'brush-item');
             brushItem.setAttribute('data-id', name);
             brushItem.addEventListener('click', function(e) {
+                window.sculptManager._main._gui._ctrlSculpting.onChangeTool(0);
                 updateBrushParams(window.sculptManager.getCurrentTool(), e.target.getAttribute("data-id"));
             });
 

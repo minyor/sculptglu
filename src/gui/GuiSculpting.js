@@ -31,6 +31,7 @@ class GuiSculpting {
     this._ctrlContinuous = null;
     this._ctrlTitleCommon = null;
     this.init(guiParent);
+    this.GuiSculptingTools = GuiSculptingTools;
   }
 
   init(guiParent) {

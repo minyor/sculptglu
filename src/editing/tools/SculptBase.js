@@ -378,7 +378,7 @@ class SculptBase {
     var iFaces = mesh.getFacesFromVertices(iVerts);
     var radius2 = picking.getLocalRadius2();
     var center = picking.getIntersectionPoint();
-    var d2Max = radius2 * (1.1 - subFactor) * 0.2;
+    var d2Max = radius2 * (1.1 - subFactor) * 0.02;
     var d2Min = (d2Max / 4.2025) * decFactor;
 
     // undo-redo
